@@ -11,10 +11,10 @@
       body {
         background-color: white;
         color: black;
-        /* background-image: url("assets/background1.jpg"); Set the path to your background image */
         background-size: cover;
         background-repeat: no-repeat;
         height: 300%;
+        overflow-x: hidden; /* Add this line to hide horizontal scrollbar */
       }
 
       ba
@@ -88,7 +88,7 @@
 
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
-      <a class="navbar-brand" href="">AURION-BANK </a>
+      <a class="navbar-brand" href="">AURO-BANK </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -112,7 +112,7 @@
           </li>
           <li class="nav-item active">
             <a class="nav-link" (click)="viewAccountStatement()"
-              >MINI STATEMENT
+              >Mini-Statement
             </a>
           </li>
           <li class="nav-item active">
@@ -135,12 +135,12 @@
             <a class="nav-link" (click)="viewQueryForm()"> Ask Query</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" (click)="queyFunShow()"> REPLY</a>
+            <a class="nav-link" (click)="queyFunShow()"> Reply</a>
           </li>
 
-          <li class="nav-item active">
+          <!-- <li class="nav-item active">
             <a class="nav-link" (click)="logout()">LogOut</a>
-          </li>
+          </li> -->
 
           <!-- Add other navigation links as needed -->
         </ul>

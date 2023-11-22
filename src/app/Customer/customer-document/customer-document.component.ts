@@ -6,8 +6,6 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
-import { DataServiceService } from "src/app/service/data-service.service";
-
 import { DocumentServiceService } from "src/app/service/document-service.service";
 
 @Component({
@@ -18,8 +16,8 @@ import { DocumentServiceService } from "src/app/service/document-service.service
 export class CustomerDocumentComponent {
   customerDocumentForm = new FormGroup({
     DocumentType: new FormControl("", Validators.required),
-    DocumentFile: new FormControl(null, Validators.required), // Use null for file input
-    customerId: new FormControl(0, Validators.required),
+    DocumentFile: new FormControl(null, Validators.required),
+    CustomerId: new FormControl(0, Validators.required),
   });
 
   get TypeValidator() {
@@ -31,53 +29,42 @@ export class CustomerDocumentComponent {
   }
 
   get customerValidator() {
-    return this.customerDocumentForm.get("customerId");
+    return this.customerDocumentForm.get("CustomerId");
   }
-  cutomerId: any;
-  constructor(
-    private auth: DocumentServiceService,
-    private datas: DataServiceService
-  ) {
-    this.cutomerId = datas.customerId;
-  }
+
+  constructor(private auth: DocumentServiceService) {}
 
   onFileChange(event: any) {
     const file = event.target.files[0];
-    this.customerDocumentForm.patchValue({
-      DocumentFile: file,
-    });
+    this.customerDocumentForm.patchValue({ DocumentFile: file });
   }
 
   submitData() {
     const formData = new FormData();
     formData.append(
-      "customerId",
-      this.customerDocumentForm.get("customerId")?.value?.toString() ?? ""
+      "CustomerId",
+      this.customerDocumentForm.get("CustomerId")?.value?.toString() ?? ""
     );
     formData.append(
       "DocumentType",
       this.customerDocumentForm.get("DocumentType")?.value?.toString() ?? ""
     );
-
-    const documentFile = this.customerDocumentForm.get("DocumentFile")
-      ?.value as File | null | undefined;
+    const documentFile = this.customerDocumentForm.get("DocumentFile")?.value as File | null | undefined;
+  
     if (documentFile instanceof File) {
       formData.append("DocumentFile", documentFile);
     }
-
+  
     this.auth.uploadDocument(formData).subscribe({
       next: (res) => {
         console.log(res);
+        // Display a popup alert after successful document upload
+        window.alert("Document uploaded successfully!");
       },
       error: (err: HttpErrorResponse) => {
         console.error(err);
       },
     });
   }
-
-  // loadDocuments() {
-  //   this.auth.GetuploadDocument(this.data).subscribe(
-
-  //   );
-  // }
+  
 }

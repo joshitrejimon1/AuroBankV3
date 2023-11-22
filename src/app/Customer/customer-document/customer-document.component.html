@@ -9,19 +9,8 @@
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     />
     <style>
-      body {
-        background-color: #f8f9fa;
-      }
-
       .container {
         margin-top: 50px;
-      }
-
-      form {
-        background-color: #ffffff;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
       }
 
       h2 {
@@ -43,11 +32,19 @@
   </head>
 
   <body>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-md-6">
+    <div>
+      <div>
+        <div>
           <form [formGroup]="customerDocumentForm" (ngSubmit)="submitData()">
-            <h2 class="mb-4">Document Upload</h2>
+            <h1
+              class="my-4 display-4 fw-bold ls-tight"
+              style="font-size: 2rem;"
+            >
+              "Upload Necessary Documents for <br />
+              <span class="text-primary" style="font-size: 3rem;"
+                >banking related purposes" </span
+              >
+            </h1>
 
             <!-- Document Type -->
             <div class="mb-3">
