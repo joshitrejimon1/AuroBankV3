@@ -105,8 +105,12 @@
           <!-- Add your navigation links here -->
 
           <li class="nav-item active">
-            <a class="nav-link" routerLink="/customer">Customer dashboard</a>
+            <a class="nav-link" routerLink="/customer" (click)="viewdashboard()">Customer dashboard</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="/customer" (click)="fdcalculator()">FD Calculator</a>
+          </li>
+          
           <li class="nav-item active">
             <a class="nav-link" (click)="viewPassbook()">Passbook</a>
           </li>
@@ -195,14 +199,27 @@
           <app-view-query></app-view-query>
         </div>
 
-        <h3>userId: {{newUserId}}</h3>
+        <div *ngIf="showCalculator">
+          <app-fd-calculator></app-fd-calculator>
+        </div>
 
-        <h3>customerId:{{customerId}}</h3>
-
-        <h3>AccountId:{{customerId}}</h3>
-        <h3>AccountId: out{{customerId}}</h3>
-
-        <h3>userId In:{{userId}}</h3>
+        <div class="container mt-7" *ngIf="dashboard">
+  
+          <div class="card text-center">
+            <img src="https://th.bing.com/th/id/R.6b0022312d41080436c52da571d5c697?rik=ejx13G9ZroRrcg&riu=http%3a%2f%2fpluspng.com%2fimg-png%2fuser-png-icon-young-user-icon-2400.png&ehk=NNF6zZUBr0n5i%2fx0Bh3AMRDRDrzslPXB0ANabkkPyv0%3d&risl=&pid=ImgRaw&r=0" class="card-img-top rounded-circle mx-auto mt-3" alt="Customer Photo" style="width: 100px; height: 100px; object-fit: cover;">
+            <div class="card-body">
+             
+              <h5 class="card-title"> Name:{{customerDataStore.firstName}}&nbsp;{{customerDataStore.lastName}}</h5>
+              <h5 class="card-title">Email:{{customerDataStore.email}}</h5>
+              <h5 class="card-title">Status:{{customerDataStore.isActive}}</h5>
+             
+            </div>
+          </div>
+        </div>
+        
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
       </main>
     </div>
 

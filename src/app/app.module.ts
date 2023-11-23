@@ -33,6 +33,7 @@ import { PaginationComponent } from './Customer/pagination/pagination.component'
 import { TwoDateFilterComponent } from './Customer/two-date-filter/two-date-filter.component';
 import { SetInterestComponent } from './Admin/set-interest/set-interest.component';
 import { ViewQueryComponent } from './Customer/view-query/view-query.component';
+import { FdCalculatorComponent } from './Customer/fd-calculator/fd-calculator.component';
 
 
 
@@ -60,6 +61,7 @@ import { ViewQueryComponent } from './Customer/view-query/view-query.component';
     TwoDateFilterComponent,
     SetInterestComponent,
     ViewQueryComponent,
+    FdCalculatorComponent,
 
   ],
   imports: [

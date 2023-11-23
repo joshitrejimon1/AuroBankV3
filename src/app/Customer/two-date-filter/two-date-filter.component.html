@@ -115,6 +115,7 @@
         <th style="width: 1000px;">Transaction Amount</th>
         <th style="width: 1000px;">Transaction Date</th>
         <th style="width: 1000px;">Transaction Type</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -126,11 +127,13 @@
         <td>{{ transaction.transactionAmount }}</td>
         <td>{{ transaction.transactionDate | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
         <td>{{ transaction.transactionType }}</td>
+        
+
       </tr>
     </tbody>
   </table>
   
-  
+
 
   <button
     (click)="downloadTable()"
@@ -140,3 +143,4 @@
     {{ downloading ? 'Downloading...' : 'Download Table' }}
   </button>
 </div>
+<pre>{{transactions}}</pre>

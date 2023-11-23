@@ -1,5 +1,16 @@
 body {
   background-color: #fbfbfb;
+   /* Set background image */
+   background-image: '../assets/';
+
+   /* Set background size to cover the entire viewport */
+   background-size: cover;
+ 
+   /* Center the background image */
+   background-position: center;
+ 
+   /* Fix the background image while scrolling */
+   background-attachment: fixed;
 }
 @media (min-width: 991.98px) {
   main {
@@ -89,3 +100,5 @@ margin-bottom: 10px; /* Add some margin between account details */
 width: 261px;
 height: 150px;
 }
+/* style.css */
+

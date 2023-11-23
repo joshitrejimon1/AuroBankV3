@@ -13,6 +13,7 @@ import { DataServiceService } from 'src/app/service/data-service.service';
   styleUrls: ['./cutomer-dashboard.component.css']
 })
 export class CutomerDashboardComponent {
+
   condition=true;
   sharedComponent:any
   rollNo:any;
@@ -20,7 +21,7 @@ export class CutomerDashboardComponent {
   userId:any;
   customerDataStore:any;
   customerId:any;
-
+  dashboard: boolean=true;
 
   newUserId=this.datas.userId
   newAccounId=this.datas.accountId
@@ -29,6 +30,7 @@ export class CutomerDashboardComponent {
   needRegistartion=false//showing registartion needed
   showWarrning=false//create account request
   accountStorage:any//
+
 
   constructor(private auth:CustomerServiceService,private routeSet:Router,
    private route:ActivatedRoute,private datas:DataServiceService ,
@@ -45,6 +47,7 @@ export class CutomerDashboardComponent {
         next:(data)=>
         {
           this.customerDataStore=data
+          console.log(data)
 
           //extracting customerobject and passing data service
           this.customerId=this.customerDataStore.customerId
@@ -112,8 +115,8 @@ this.showAccountCreate=false;
 this.showTransaction=false;
 this.showAccountForm=false;
 this.showAccountStatment = false;
-
-  
+this.dashboard=false;
+this.showCalculator = false;
 
 }
 
@@ -130,6 +133,8 @@ this.showAccountCreate=false;
 this.showTransaction=false;
 this.showAccountForm=false;
 this.showPassbook=false;
+this.dashboard=false;
+this.showCalculator = false;
 }
  
 
@@ -145,8 +150,10 @@ this.showAccountStatment=false;
 this.showDocument = false;
 this.showAccountCreate=false;
 this.showTransaction=false;
+this.dashboard=false;
 this.showAccountForm=false;
 this.showPassbook=false;
+this.showCalculator = false;
 }
 
 
@@ -162,6 +169,8 @@ showDocumentFun() {
  this.showTransaction=false;
  this.showAccountForm=false;
  this.showPassbook=false;
+ this.dashboard=false;
+ this.showCalculator = false;
 }
 
 
@@ -179,7 +188,8 @@ this.showAccountCreate=true;
   this.showPassbook=false;
   this.showAccountStatment = false;
 
-
+  this.dashboard=false;
+  this.showCalculator = false;
 }
 
 
@@ -198,7 +208,8 @@ this.showTransaction=true
   this.showAccountForm=false;
   this.showPassbook=false;
   this.showAccountStatment = false;
-  
+  this.dashboard=false;
+  this.showCalculator = false;
 }
 
 
@@ -217,6 +228,8 @@ this.showAccountStatment = false;
   this.showAccountCreate=false;
   this.showPassbook=false;
   this.showWarrning=true
+  this.dashboard=false;
+  this.showCalculator = false;
 }
 
 
@@ -238,10 +251,37 @@ queyFunShow()
  this.showAccountCreate=false;
  this.showPassbook=false;
  this.showAccountForm=false;
+ this.dashboard=false;
+ this.showCalculator = false;
 }
 
-
-
+viewdashboard(){
+  this.dashboard=true;
+  this.showAccountStatment = false;
+ this.showQueryTab=false
+ this.showTransaction=false
+ this.showAccountCreate=false;
+ this.showDocument = false;
+ this.showQuery=false
+ this.showAccountCreate=false;
+ this.showPassbook=false;
+ this.showAccountForm=false;
+ this.showCalculator = false;
+}
+showCalculator = false;
+fdcalculator() {
+  this.showQueryTab = false
+  this.showTransaction = false
+  this.showAccountCreate = false;
+  this.showDocument = false;
+  this.showQuery = false
+  this.showAccountCreate = false;
+  this.showPassbook = false;
+  this.showAccountForm = false;
+  this.showCalculator = true;
+  // this.showCardsState = false;
+  this.dashboard=false;
+}
 
 
 }
