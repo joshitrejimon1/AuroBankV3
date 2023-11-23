@@ -91,6 +91,7 @@ export class UpdateCustomerComponent {
 
         // Clear the form
         this.customerRegisterForm.reset();
+        location.reload();
       },
       error: (err: HttpErrorResponse) => {
         console.log(err);

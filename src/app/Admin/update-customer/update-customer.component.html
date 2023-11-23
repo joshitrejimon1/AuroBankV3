@@ -9,9 +9,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     />
     <style>
-      .container-fluid {
-        margin-top: 30px;
-      }
+     
 
       .form-container,
       .table-container {
@@ -36,14 +34,24 @@
       }
     </style>
   </head>
+  <h1 class="my-4 display-4 fw-bold ls-tight" style="font-size: 3rem;">
+    List Of Customers.... 
+    <span class="text-primary" style="font-size: 3rem;"
+      ></span
+    >
+  </h1>
   <body>
+  
     <!-- Right side - Table -->
-    <div class="container mt-4">
-      <h2 class="text-center mb-4">List of Customers</h2>
+    <div >
+     
+
+      
+
       <table class="table table-bordered table-striped">
         <thead class="thead-dark">
           <tr>
-            <th style="width: 150px;">Customer ID</th>
+            <th style="width: 10px;">Customer ID</th>
             <th style="width: 150px;">First Name</th>
             <th style="width: 150px;">Last Name</th>
             <th style="width: 200px;">Email</th>
@@ -70,8 +78,8 @@
               >
                 Delete
               </button>
-            
-            
+              <br>
+
               <button
                 class="btn btn-success"
                 (click)="showUpdateForm(item.customerId)"
@@ -183,6 +191,7 @@
           >
             Submit form
           </button>
+          
         </div>
       </form>
     </div>

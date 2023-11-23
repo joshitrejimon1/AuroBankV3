@@ -180,7 +180,7 @@ this.auth.withdrawAmount(Formdata).subscribe(
 
 //transfer Amount
 transferForm = new FormGroup({
-  accountId: new FormControl('',Validators.required),
+  accountNumber: new FormControl('',Validators.required),
   targetAccountNumber: new FormControl('', Validators.required),
   amount: new FormControl('', [Validators.required, Validators.min(0)]),
   description: new FormControl('',Validators.required)
@@ -188,7 +188,7 @@ transferForm = new FormGroup({
 
 get tAccountNumberValidator()
 {
-  return this.transferForm.get('accountId')
+  return this.transferForm.get('accountNumber')
 }
 
 get targetAccountNumberValidator()
