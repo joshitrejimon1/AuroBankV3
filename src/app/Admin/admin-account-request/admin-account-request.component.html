@@ -1,8 +1,17 @@
-<!-- account-list.component.html -->
-<!-- Your existing HTML -->
-
+<div class="custom-container">
+  <h1 class="my-5 display-3 fw-bold ls-tight text-center">
+    <span class="text-primary" style="font-size: 3rem;">List Of All Account Requests</span>
+  </h1>
+  <h4 class="text-center">
+    (Note: Approval Only after KYC)
+  </h4>
+</div>
 <div class="container mt-4">
-  <h2>Account List</h2>
+  <div class="row">
+    <div class="col-md-12 text-center">
+   
+    </div>
+  </div>
   <div class="row">
     <!-- First column with the table -->
     <div class="col-md-8">
@@ -37,30 +46,8 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Second column with the search form -->
-    <!-- <div class="col-md-4">
-        <h5>search customer id to view  customer uploaded document</h5>
-        <form class="mb-4 mt-4">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search by Customer ID" [(ngModel)]="searchCustomerId" />
-            <button class="btn btn-outline-secondary" type="button" (click)="searchDocument()">Search</button>
-          </div>
-        </form>
-        <!-- Additional content related to search, if needed... -->
-    <!-- </div> -->
-
-    <!-- </div> -->
-    <!-- <div *ngIf="showAccountNotFound" class="modal-overlay">
-    <div class="modal-dialog">
-      <ngb-alert class="bg-danger">
-        <h1 class="text-white">Sorry, Account Not Found</h1>
-        <button class="btn btn-success" (click)="refreshfun()">Clear</button>
-      </ngb-alert>
-    </div> -->
-    <!-- </div> -->
     <div class="col-md-4">
-      <h5>search customer id to view customer uploaded document</h5>
+      <h5>Search Customer ID to View Customer Uploaded Document</h5>
       <form
         [formGroup]="searchForm"
         class="mb-4 mt-4"
@@ -73,9 +60,11 @@
             placeholder="Search by Customer ID"
             formControlName="documentId"
           />
-          <button class="btn btn-outline-secondary" type="submit">
-            Search
-          </button>
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit">
+              Search
+            </button>
+          </div>
         </div>
       </form>
       <!-- Additional content related to search, if needed... -->
@@ -84,6 +73,16 @@
 </div>
 
 <div *ngIf="documents">
-  <h3>Image for Customer ID {{ searchCustomerId }}</h3>
-  <img [src]="imageSource" alt="Document Image" />
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h3>Image for Customer ID {{ searchCustomerId }}</h3>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <img [src]="imageSource" alt="Document Image" class="img-fluid" />
+      </div>
+    </div>
+  </div>
 </div>
